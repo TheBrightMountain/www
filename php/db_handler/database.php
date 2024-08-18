@@ -6,7 +6,7 @@ class Database
     private static $dbpassword = "root";
     private static $dbname = "orderanddeliverymanagement";
 
-    protected static function connect()
+    public static function connect()
     {
         try {
             $dsn = 'mysql:host=' . self::$dbservername . ';dbname=' . self::$dbname;

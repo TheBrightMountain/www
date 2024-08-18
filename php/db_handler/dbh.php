@@ -34,4 +34,16 @@ class Dbh extends Database
             return null;
         }
     }
+
+    public static function selectAllFromTable($table)
+    {
+        $stmt = self::connect()->query("SELECT * FROM `$table`");
+        $retrieved_data = array();
+        if ($stmt) {
+            while($row = $stmt->fetch()) {
+                $retrieved_data[] = $row;
+            }
+        }
+        return $retrieved_data;
+    }
 }
