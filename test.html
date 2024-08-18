@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+</head>
+<body>
+    <div id="personnels-container"></div>
+
+    <script id="personnels-template" type="text/x-handlebars-template">
+        {{#each personnels}}
+            <div>
+                <h2>{{name}}</h2>
+                <p>Phone: {{phone}}</p>
+                <p>Email: {{email}}</p>
+            </div>
+        {{/each}}
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '/php/db_handler/get_personnels.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var source = document.getElementById('personnels-template').innerHTML;
+                    var template = Handlebars.compile(source);
+                    var html = template({
+                        personnels: data
+                    });
+                    document.getElementById('personnels-container').innerHTML = html;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

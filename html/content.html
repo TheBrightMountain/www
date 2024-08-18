@@ -1,3 +1,17 @@
-<h1 id="#name-display" class="text-white">Welcome</h1>
+<h1 class="text-white">Welcome</h1>
 <script src="/js/session_management/logout.js"></script>
+<script src="/js/db_handler/get_orders.js"></script>
 <button id="logoutButton" class="btn px-5 btn-outline-light">Log out</button>
+<button id="testButton" class="btn px-5 btn-outline-light">Test</button>
+
+<div id="test-container" class="container text-white"></div>
+
+<script id="orders-template" type="text/x-handlebars-template">
+    {{#each orders}}
+        <div>
+            <h1>{{order_id}}</h1>
+            <p>customer_id: {{customer_id}}</p>
+        </div>
+    {{/each}}
+</script>
+

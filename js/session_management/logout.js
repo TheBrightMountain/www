@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#logoutButton").click(function (event) {
+    $('#logoutButton').click(function (event) {
         event.preventDefault(); // Prevent the default button action
 
         $.ajax({

@@ -17,7 +17,6 @@ $(document).ready(function () {
                         $("#content").load("/html/content.html").fadeIn(400);
                         
                     });
-                    $("#name-diplay").text("Hello");
                     // alert(response.message);
                 } else {
                     alert(response.message);
