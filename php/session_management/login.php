@@ -3,10 +3,6 @@ session_start();
 header('Content-Type: application/json');
 require_once '../db_handler/dbh.php';
 
-// Simulated user data for testing purposes
-// $validEmail = 'test@gmail.com';
-// $validPassword = 'test';
-
 $response = ['success' => false, 'message' => ''];
 
 

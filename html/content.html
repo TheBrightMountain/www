@@ -1,17 +1,32 @@
-<h1 class="text-white">Welcome</h1>
-<script src="/js/session_management/logout.js"></script>
 <script src="/js/db_handler/get_orders.js"></script>
-<button id="logoutButton" class="btn px-5 btn-outline-light">Log out</button>
-<button id="testButton" class="btn px-5 btn-outline-light">Test</button>
+<script src="/js/session_management/logout.js"></script>
+<button id="btnLogout" class="btn px-5 btn-outline-light">Log out</button>
 
-<div id="test-container" class="container text-white"></div>
-
-<script id="orders-template" type="text/x-handlebars-template">
-    {{#each orders}}
-        <div>
-            <h1>{{order_id}}</h1>
-            <p>customer_id: {{customer_id}}</p>
-        </div>
-    {{/each}}
+<script id="rowOrder" type="text/x-handlebars-template">
+  {{#each orders}}
+      <th scope="row">{{order_id}}</th>
+      <td>{{customer_id}}</td>
+      <td>{{order_date}}</td>
+      <td>{{delivery_date}}</td>
+      <td>{{status}}</td>
+      <td><button class="btn btn-secondary">Edit</button></td>
+    </tr>
+  {{/each}}
 </script>
 
+<div class="container bg-dark p-5">
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Order date</th>
+        <th scope="col">Delivery date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody id="tbodyOrder">
+    </tbody>
+  </table>
+</div>
